@@ -27,8 +27,14 @@ Successfully saved UserId = sa to the secret store.
 
 # set password matching with the one in docker-compose yaml file
 
-dotnet user-secrets set "Password" "P@$$w0rd"
+dotnet user-secrets set "Password" "P@55w0rd!"
 
 # output
-λ dotnet user-secrets set "Password" "P@$$w0rd"
+λ dotnet user-secrets set "Password" "P@55w0rd!"
 Successfully saved Password = P@$$w0rd to the secret store.
+
+# prepare for the data migration
+dotnet ef migrations add initialmigration
+
+# apply the migrations to the database
+dotnet ef database update
