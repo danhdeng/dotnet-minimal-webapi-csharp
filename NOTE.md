@@ -21,6 +21,14 @@ Set UserSecretsId to 'bf8ab4bd-05ca-4035-be24-b7dc8e860b54' for MSBuild project 
 
 dotnet user-secrets set "UserId" "sa"
 
-#output
+# output
 λ dotnet user-secrets set "UserId" "sa"
 Successfully saved UserId = sa to the secret store.
+
+# set password matching with the one in docker-compose yaml file
+
+dotnet user-secrets set "Password" "P@$$w0rd"
+
+# output
+λ dotnet user-secrets set "Password" "P@$$w0rd"
+Successfully saved Password = P@$$w0rd to the secret store.
