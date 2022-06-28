@@ -38,7 +38,11 @@ app.MapGet("api/v1/commands", async (ICommandRepo repo, IMapper mapper)=>{
 
 app.MapGet("api/v1/commands/{id}", async (ICommandRepo repo, IMapper mapper, [FromRoute]int id)=>{
     var command=await repo.GetCommandById(id);
-    return Results.Ok(mapper.Map<CommandReadDto>(command));
+    if (command != null)
+    {
+        return Results.Ok(mapper.Map<CommandReadDto>(command));
+    }
+    return Results.NotFound();
 });
 
 app.MapPost("api/v1/commands", async (ICommandRepo repo, IMapper mapper, CommandCreateDto commandCreateDto)=>{
